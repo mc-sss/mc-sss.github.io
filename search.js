@@ -1,16 +1,6 @@
 // 预加载的搜索索引（示例数据，实际应通过JSON文件加载）
-const searchIndex = [
-    {
-        title: "首页",
-        content: "欢迎访问我们的网站...",
-        url: "/index.html"
-    },
-    {
-        title: "产品介绍",
-        content: "我们的产品包含...",
-        url: "/products.html"
-    }
-];
+let searchIndex = null;
+
 function generateSearchIndex() {
             const pageContent = document.getElementById('pageContent');
             
