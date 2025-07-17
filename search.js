@@ -57,6 +57,13 @@ document.getElementById('searchInput').addEventListener('input', function(e) {
     displayResults(results);
 });
 
+document.getElementById('searchButton').addEventListener('click', function() {
+    const inputElement = document.getElementById("searchInput");
+    const query = inputElement.value.trim().toLowerCase(); // 获取输入的值
+    const results = performSearch(query);
+    displayResults(results);
+});
+
 function performSearch(query) {
     // const searchIndex = generateSearchIndex();
     return searchIndex.filter(page => {
