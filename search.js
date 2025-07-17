@@ -40,24 +40,6 @@ async function buildSearchIndex() {
                     url: `web/${file}`
                 });
             } else {
-                // // 每个 h1 及其后续内容作为一个独立条目
-                // h1s.forEach(h1 => {
-                //     const title = h1.innerText.trim();
-                //     let content = "";
-                //     let nextNode = h1.nextElementSibling;
-                    
-                //     // 遍历直到下一个 <h1> 或文档结束
-                //     while (nextNode && !(nextNode.nodeName === "H1")) {
-                //         content += extractCleanText(nextNode) + " "; // 递归提取文本
-                //         nextNode = nextNode.nextElementSibling;
-                //     }
-                    
-                //     index.push({
-                //         title: title || "无标题",
-                //         content: content.trim(),
-                //         url: `web/${file}#${encodeURIComponent(title)}`
-                //     });
-                // });
                 const fullText = doc.body.innerText.replace(/\s+/g, " ").trim();
                 
                 h1s.forEach((h1, i) => {
@@ -143,6 +125,7 @@ function displayResults(results) {
         titleTemplate.innerHTML = highlightText(result.title, document.getElementById('searchInput').value) || result.title;
 
         // 获取所有高亮片段
+        console.log(result);
         const fragments = highlightText(result.content, document.getElementById('searchInput').value);
         
         // 为每个片段创建单独的div
@@ -174,33 +157,44 @@ function highlightText(text, query) {
     
     // 查找所有匹配位置
     while ((match = regex.exec(text)) !== null) {
+        console.log(match);
+        
         const matchIndex = match.index;
+        console.log("参数：",matchIndex);
+        
         if (num == null || num+50 < matchIndex) {
             num = matchIndex;
             const matchLength = match[0].length;
             
+            console.log("提取上下文前",match[0]);
             // 提取上下文
             const start = Math.max(0, matchIndex - 50);
             const end = Math.min(text.length, matchIndex + matchLength + 50);
+            console.log("参数：",end);
             let snippet = text.substring(start, end);
 
-            // 尝试扩展到完整句子
-            const sentenceStart = Math.max(
-                0,
-                snippet.lastIndexOf('。') + 1, // 从上一个句号后开始
-                snippet.lastIndexOf('\n') + 1  // 或上一行后开始
+            const prefix = text.substring(start, matchIndex); // 关键词前的部分
+            const lastSentenceEnd = Math.max(
+                prefix.lastIndexOf('。') + 1,
+                prefix.lastIndexOf('\n') + 1,
+                0 // 默认从头开始
             );
-            snippet = snippet.substring(sentenceStart).trim(); // 去除前导空格
+    
+            // 从关键词的末尾向后查找句子边界
+            const suffix = text.substring(matchIndex + matchLength, end); // 关键词后的部分
+            const nextSentenceEnd = Math.min(
+                suffix.indexOf('。') !== -1 ? suffix.indexOf('。') + 1 : Infinity,
+                suffix.indexOf('\n') !== -1 ? suffix.indexOf('\n') : Infinity,
+                suffix.length
+            );
+    
+            // 组合完整的句子上下文
+            snippet = 
+                prefix.substring(lastSentenceEnd) + // 关键词前的完整句子部分
+                match[0] + // 关键词本身
+                suffix.substring(0, nextSentenceEnd); // 关键词后的完整句子部分
             
-            // 截断到下一个句号或换行
-            const sentenceEnd = Math.min(
-                snippet.indexOf('。'),
-                snippet.indexOf('\n'),
-                snippet.length
-            );
-            if (sentenceEnd > 0) {
-                snippet = snippet.substring(0, sentenceEnd + 1);
-            }
+            console.log("高亮处理前",snippet);
             
             // 高亮处理
             const highlighted = snippet.replace(
