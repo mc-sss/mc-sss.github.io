@@ -9,7 +9,7 @@ async function buildSearchIndex() {
         
         for (const file of files) {
             const fileResponse = await fetch(`web/${file}`);
-            const text = await fileResponse.text();
+            const text = await fileResponse.text().toLowerCase();
             const parser = new DOMParser();
             const doc = parser.parseFromString(text, 'text/html');
 
@@ -24,26 +24,22 @@ async function buildSearchIndex() {
                 });
             } else {
                 // 每个 h1 及其后续内容作为一个独立条目
-                h1s.forEach((h1, i) => {
-                    // 获取 h1 文本作为标题
+                h1s.forEach(h1 => {
                     const title = h1.textContent.trim();
+                    let content = "";
+                    let nextNode = h1.nextSibling;
                     
-                    // 获取从当前 h1 到下一个 h1 之间的内容
-                    const nextH1 = h1s[i + 1];
-                    const range = document.createRange();
-                    range.setStartAfter(h1);
-                    if (nextH1) {
-                        range.setEndBefore(nextH1);
-                    } else {
-                        range.selectNodeContents(doc.body);
+                    // 遍历直到下一个 <h1> 或文档结束
+                    while (nextNode && !(nextNode.nodeName === "H1")) {
+                        if (nextNode.nodeType === Node.TEXT_NODE || nextNode.nodeType === Node.ELEMENT_NODE) {
+                            content += nextNode.textContent;
+                        }
+                        nextNode = nextNode.nextSibling;
                     }
-                    
-                    // 提取纯文本内容
-                    const content = range.cloneContents().textContent;
                     
                     index.push({
                         title: title || "无标题",
-                        content: content,
+                        content: content.trim(),
                         url: `web/${file}#${encodeURIComponent(title)}`
                     });
                 });
@@ -51,8 +47,8 @@ async function buildSearchIndex() {
         }
     } catch (error) {
         return [
-            { title: "更方便修改的射击模组雏形", content: "作品简介 新增3d物品：猫猫 新增玩家动作优化：走、跑 新增玩家独立手臂 纯python脚本操作，非常方便二次创作 使用方式 导入模型、贴图、动画后，按一样的写法复制粘贴，即可重复制作同样的内容 清单 (*核心)代表删除后模组就失效的部分 . ├── beh │ ├── CustomCatmaobbbScripts │ │ ├── client.py ———— 客户端python脚本文件(*核心) │ │ ├── modMain.py ———— python脚本文件(*核心) │ │ └── server.py ———— 服务端python脚本文件 │ └─ netease_items_beh │ └── catmaobbb.json ———— 猫猫的物品行为文件(*核心) └── res ├── animation_controllers │ └── catmaobbb.animation_controllers.json ———— 猫猫的动画控制器文件(*核心) ├── animations │ ├── better_steve.animation.json ———— 动作优化的动画文件(*核心) │ ├── catmaobbb.animation.json ———— 玩家第三人称手持猫猫时的动画文件(*核心) │ └── catmaobbb.animation_first.json ———— 玩家第一人称手持猫猫时的动画文件(*核心) ├── attachables │ └── catmaobbb.json ———— 猫猫的附着物文件(*核心) ├── models │ └── entity │ ├── catmaobbb.json ———— 猫猫的3d模型(*核心) │ ├── catmaobbb_arm.json ———— 独立手臂的模型(*核心) │ ├── player.armor.base.json ———— 适配玩家动作优化的装备模型(*核心) │ ├── player_armor.json ———— 适配玩家动作优化的装备模型引用模型(*核心) │ └── the_man_animation.json ———— 适配玩家动作优化的玩家模型(*核心) ├── netease_items_res │ └── catmaobbb.json ———— 猫猫的物品材质文件(*核心) ├── render_controllers │ └── catmaobbb_controller.json ———— 独立手臂的渲染控制器(*核心) ├── texts │ └── zh_CN.lang ———— 定义中文名称 └── textures ├── item_texture.json ———— 贴图引用文件 ├── entity │ └── catmaobbb.png ———— 猫猫的3d模型贴图 └── items └── catmaobbb.png ———— 猫猫的物品栏贴图 ...", url: "web/klpa.html" },
-            { title: "function和python结合示例", content: "Python函数示例...", url: "web/klpb.html" }
+            { title: "更方便修改的射击模组雏形（作者：某只苦力怕）", content: "作品简介 新增3d物品：猫猫 新增玩家动作优化：走、跑 新增玩家独立手臂 纯python脚本操作，非常方便二次创作 使用方式 导入模型、贴图、动画后，按一样的写法复制粘贴，即可重复制作同样的内容 清单 (*核心)代表删除后模组就失效的部分 . ├── beh │ ├── CustomCatmaobbbScripts │ │ ├── client.py ———— 客户端python脚本文件(*核心) │ │ ├── modMain.py ———— python脚本文件(*核心) │ │ └── server.py ———— 服务端python脚本文件 │ └─ netease_items_beh │ └── catmaobbb.json ———— 猫猫的物品行为文件(*核心) └── res ├── animation_controllers │ └── catmaobbb.animation_controllers.json ———— 猫猫的动画控制器文件(*核心) ├── animations │ ├── better_steve.animation.json ———— 动作优化的动画文件(*核心) │ ├── catmaobbb.animation.json ———— 玩家第三人称手持猫猫时的动画文件(*核心) │ └── catmaobbb.animation_first.json ———— 玩家第一人称手持猫猫时的动画文件(*核心) ├── attachables │ └── catmaobbb.json ———— 猫猫的附着物文件(*核心) ├── models │ └── entity │ ├── catmaobbb.json ———— 猫猫的3d模型(*核心) │ ├── catmaobbb_arm.json ———— 独立手臂的模型(*核心) │ ├── player.armor.base.json ———— 适配玩家动作优化的装备模型(*核心) │ ├── player_armor.json ———— 适配玩家动作优化的装备模型引用模型(*核心) │ └── the_man_animation.json ———— 适配玩家动作优化的玩家模型(*核心) ├── netease_items_res │ └── catmaobbb.json ———— 猫猫的物品材质文件(*核心) ├── render_controllers │ └── catmaobbb_controller.json ———— 独立手臂的渲染控制器(*核心) ├── texts │ └── zh_CN.lang ———— 定义中文名称 └── textures ├── item_texture.json ———— 贴图引用文件 ├── entity │ └── catmaobbb.png ———— 猫猫的3d模型贴图 └── items └── catmaobbb.png ———— 猫猫的物品栏贴图 ...", url: "web/klpa.html" },
+            { title: "function和python结合示例（作者：某只苦力怕）", content: "Python函数示例...", url: "web/klpb.html" }
         ];
     }
     
