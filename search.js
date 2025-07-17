@@ -134,40 +134,46 @@ function highlightText(text, query) {
     const regex = new RegExp(`(${query})`, 'gi');
     const results = [];
     let match;
+    let num = null;
     
     // 查找所有匹配位置
     while ((match = regex.exec(text)) !== null) {
         const matchIndex = match.index;
-        const matchLength = match[0].length;
-        
-        // 提取上下文
-        const start = Math.max(0, matchIndex - 50);
-        const end = Math.min(text.length, matchIndex + matchLength + 50);
-        let snippet = text.substring(start, end);
+        if (num == null || num+50 < matchIndex) {
+            num = matchIndex;
+            const matchLength = match[0].length;
+            
+            // 提取上下文
+            const start = Math.max(0, matchIndex - 50);
+            const end = Math.min(text.length, matchIndex + matchLength + 50);
+            let snippet = text.substring(start, end);
 
-        // 尝试扩展到完整句子
-        const sentenceStart = Math.max(
-            snippet.lastIndexOf('。'),
-            snippet.lastIndexOf('\n'),
-            0
-        );
-        snippet = snippet.substring(sentenceStart);
-        const sentenceEnd = Math.min(
-            snippet.indexOf('。', matchIndex - start),
-            snippet.indexOf('\n', matchIndex - start),
-            snippet.length
-        );
-        if (sentenceEnd > 0) {
-            snippet = snippet.substring(0, sentenceEnd + 1);
+            // 尝试扩展到完整句子
+            const sentenceStart = Math.max(
+                0,
+                snippet.lastIndexOf('。') + 1, // 从上一个句号后开始
+                snippet.lastIndexOf('\n') + 1  // 或上一行后开始
+            );
+            snippet = snippet.substring(sentenceStart).trim(); // 去除前导空格
+            
+            // 截断到下一个句号或换行
+            const sentenceEnd = Math.min(
+                snippet.indexOf('。'),
+                snippet.indexOf('\n'),
+                snippet.length
+            );
+            if (sentenceEnd > 0) {
+                snippet = snippet.substring(0, sentenceEnd + 1);
+            }
+            
+            // 高亮处理
+            const highlighted = snippet.replace(
+                new RegExp(`(${query})`, 'gi'),
+                '<span class="highlight">$1</span>'
+            );
+            
+            results.push(highlighted);
         }
-        
-        // 高亮处理
-        const highlighted = snippet.replace(
-            new RegExp(`(${query})`, 'gi'),
-            '<span class="highlight">$1</span>'
-        );
-        
-        results.push(highlighted);
     }
 
     return results.length > 0 
