@@ -1,6 +1,23 @@
 // 预加载的搜索索引（示例数据，实际应通过JSON文件加载）
 let searchIndex = null;
 
+function extractCleanText(element) {
+    let text = "";
+    const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT, // 只处理文本节点
+        null,
+        false
+    );
+ 
+    let node;
+    while ((node = walker.nextNode())) {
+        text += node.textContent.trim() + " "; // 合并文本，用空格分隔
+    }
+ 
+    return text.replace(/\s+/g, " ").trim(); // 合并多个空格为单个
+}
+
 async function buildSearchIndex() {
     const index = [];
     
@@ -31,9 +48,7 @@ async function buildSearchIndex() {
                     
                     // 遍历直到下一个 <h1> 或文档结束
                     while (nextNode && !(nextNode.nodeName === "H1")) {
-                        if (nextNode.nodeType === Node.TEXT_NODE || nextNode.nodeType === Node.ELEMENT_NODE) {
-                            content += nextNode.innerText.trim();
-                        }
+                        content += extractCleanText(nextNode) + " "; // 递归提取文本
                         nextNode = nextNode.nextElementSibling;
                     }
                     
