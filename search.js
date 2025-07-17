@@ -25,16 +25,16 @@ async function buildSearchIndex() {
             } else {
                 // 每个 h1 及其后续内容作为一个独立条目
                 h1s.forEach(h1 => {
-                    const title = h1.textContent.trim();
+                    const title = h1.innerText.trim();
                     let content = "";
-                    let nextNode = h1.nextSibling;
+                    let nextNode = h1.nextElementSibling;
                     
                     // 遍历直到下一个 <h1> 或文档结束
                     while (nextNode && !(nextNode.nodeName === "H1")) {
                         if (nextNode.nodeType === Node.TEXT_NODE || nextNode.nodeType === Node.ELEMENT_NODE) {
-                            content += nextNode.textContent;
+                            content += nextNode.innerText.trim();
                         }
-                        nextNode = nextNode.nextSibling;
+                        nextNode = nextNode.nextElementSibling;
                     }
                     
                     index.push({
