@@ -1,5 +1,8 @@
 // 预加载的搜索索引（示例数据，实际应通过JSON文件加载）
 let searchIndex = null;
+const files = [
+    'klpa.html', 'klpb.html', 'klpc.html', 'klpd.html', 'klpe.html', 'klpf.html', 'klpg.html'
+];
 
 function extractCleanText(element) {
     let text = "";
@@ -22,8 +25,6 @@ async function buildSearchIndex() {
     const index = [];
     
     try {
-        const files = ['klpa.html', 'klpb.html', 'klpc.html', 'klpd.html', 'klpe.html'];
-        
         for (const file of files) {
             const fileResponse = await fetch(`web/${file}`);
             const text = await fileResponse.text();
@@ -41,6 +42,7 @@ async function buildSearchIndex() {
                 });
             } else {
                 const fullText = doc.body.innerText.replace(/\s+/g, " ").trim();
+                const h1Texts = Array.from(h1s).map(h1 => h1.innerText.trim());
                 
                 h1s.forEach((h1, i) => {
                     const title = h1.innerText.trim();
@@ -63,9 +65,10 @@ async function buildSearchIndex() {
             }
         };
     } catch (error) {
+        console.log(error);
         return [
             { title: "更方便修改的射击模组雏形（作者：某只苦力怕）", content: "作品简介 新增3d物品：猫猫 新增玩家动作优化：走、跑 新增玩家独立手臂 纯python脚本操作，非常方便二次创作 使用方式 导入模型、贴图、动画后，按一样的写法复制粘贴，即可重复制作同样的内容 清单 (*核心)代表删除后模组就失效的部分 . ├── beh │ ├── CustomCatmaobbbScripts │ │ ├── client.py ———— 客户端python脚本文件(*核心) │ │ ├── modMain.py ———— python脚本文件(*核心) │ │ └── server.py ———— 服务端python脚本文件 │ └─ netease_items_beh │ └── catmaobbb.json ———— 猫猫的物品行为文件(*核心) └── res ├── animation_controllers │ └── catmaobbb.animation_controllers.json ———— 猫猫的动画控制器文件(*核心) ├── animations │ ├── better_steve.animation.json ———— 动作优化的动画文件(*核心) │ ├── catmaobbb.animation.json ———— 玩家第三人称手持猫猫时的动画文件(*核心) │ └── catmaobbb.animation_first.json ———— 玩家第一人称手持猫猫时的动画文件(*核心) ├── attachables │ └── catmaobbb.json ———— 猫猫的附着物文件(*核心) ├── models │ └── entity │ ├── catmaobbb.json ———— 猫猫的3d模型(*核心) │ ├── catmaobbb_arm.json ———— 独立手臂的模型(*核心) │ ├── player.armor.base.json ———— 适配玩家动作优化的装备模型(*核心) │ ├── player_armor.json ———— 适配玩家动作优化的装备模型引用模型(*核心) │ └── the_man_animation.json ———— 适配玩家动作优化的玩家模型(*核心) ├── netease_items_res │ └── catmaobbb.json ———— 猫猫的物品材质文件(*核心) ├── render_controllers │ └── catmaobbb_controller.json ———— 独立手臂的渲染控制器(*核心) ├── texts │ └── zh_CN.lang ———— 定义中文名称 └── textures ├── item_texture.json ———— 贴图引用文件 ├── entity │ └── catmaobbb.png ———— 猫猫的3d模型贴图 └── items └── catmaobbb.png ———— 猫猫的物品栏贴图 ...", url: "web/klpa.html" },
-            { title: "function和python结合示例（作者：某只苦力怕）", content: "Python函数示例...", url: "web/klpb.html" }
+            { title: "function和python结合示例（作者：某只苦力怕）", content: "作品简介 新增物品：水瓶、纯化水 新增口渴值栏ui界面，可以长按拖动 利用function系统中的tick.json，完美控制玩家的口渴值变化 利用python脚本操作，完美对接function系统中的需求 使用方式 function系统中可以让玩家执行指令，但很难达到有条件才执行，所以我们可以使用python脚本检测条件，利用tag标签让function系统有条件的对部分玩家执行对应指令 清单 (*核心)代表删除后模组就失效的部分. ├── beh │   ├── entities │   │   └── damage_effect_thirst.json   ————    模组扣血生物文件(*核心) │   ├── functions │   │  ├── tick.json   ————    function系统中设置每tick执行一次的文件(*核心) │   │   ├── update.mcfunction   ————    function文件(*核心) │   │   ├── humidity.mcfunction   ————    function文件(*核心) │   │   ├── init.mcfunction   ————    function文件(*核心) │   │   ├── rate.mcfunction   ————    function文件(*核心) │   │   ├── target.mcfunction   ————    function文件(*核心) │   │   ├── temperature.mcfunction   ————    function文件(*核心) │   │   └── thirst.mcfunction   ————    function文件(*核心) d│   ├── KKZSwordScripts │   │   ├── kkzclient.py   ————    客户端python脚本文件(*核心) │   │   ├── modMain.py   ————    python脚本文件(*核心) │   │   ├── kkzserver.py   ————    服务端python脚本文件 │   │   ├── klpkkzjm.py   ————    自定义ui界面python脚本文件 │   │   └── moveableButton.py   ————    可移动ui模块python脚本文件 │   ├── netease_items_beh │   │   ├── purified_water.json   ————    水瓶的物品行为文件(*核心) │   │   └── water_bottle.json   ————    纯化水的物品行为文件(*核心) │   ├── netease_recipes │   │   └── xxxxxx.json   ————    都是合成配方，省略 │   └── netease_tab │       └── jkzzc.json   ————    自定义创造物品栏分区文件 └── res ├── netease_items_res │   ├── purified_water_bottle.json   ————    水瓶的物品材质文件(*核心) │   └── water_bottle.json   ————    纯化水的物品材质文件(*核心) ├── texts │   └── zh_CN.lang   ————    定义中文名称 ├── textures │   ├── zitem_texture.json   ————    贴图引用文件 │   └── items │       ├── potion_bottle_drinkable.png   ————    水瓶的贴图 │       └── purified_water_bottle.png   ————    纯化水的贴图 └── ui └── klpkkzjm.json   ————    自定义的ui界面文件(*核心)", url: "web/klpb.html" }
         ];
     };
     
@@ -125,7 +128,6 @@ function displayResults(results) {
         titleTemplate.innerHTML = highlightText(result.title, document.getElementById('searchInput').value) || result.title;
 
         // 获取所有高亮片段
-        console.log(result);
         const fragments = highlightText(result.content, document.getElementById('searchInput').value);
         
         // 为每个片段创建单独的div
@@ -157,20 +159,15 @@ function highlightText(text, query) {
     
     // 查找所有匹配位置
     while ((match = regex.exec(text)) !== null) {
-        console.log(match);
         
         const matchIndex = match.index;
-        console.log("参数：",matchIndex);
-        
         if (num == null || num+50 < matchIndex) {
             num = matchIndex;
             const matchLength = match[0].length;
             
-            console.log("提取上下文前",match[0]);
             // 提取上下文
             const start = Math.max(0, matchIndex - 50);
             const end = Math.min(text.length, matchIndex + matchLength + 50);
-            console.log("参数：",end);
             let snippet = text.substring(start, end);
 
             const prefix = text.substring(start, matchIndex); // 关键词前的部分
@@ -193,8 +190,6 @@ function highlightText(text, query) {
                 prefix.substring(lastSentenceEnd) + // 关键词前的完整句子部分
                 match[0] + // 关键词本身
                 suffix.substring(0, nextSentenceEnd); // 关键词后的完整句子部分
-            
-            console.log("高亮处理前",snippet);
             
             // 高亮处理
             const highlighted = snippet.replace(
