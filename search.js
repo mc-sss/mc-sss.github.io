@@ -57,15 +57,18 @@ document.getElementById('searchInput').addEventListener('input', function(e) {
     displayResults(results);
 });
 
-document.getElementById('searchButton').addEventListener('click', function() {
-    const inputElement = document.getElementById("searchInput");
-    const query = inputElement.value.trim().toLowerCase(); // 获取输入的值
+document.getElementById("searchForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // 阻止表单提交
+    const query = document.getElementById("searchInput").value.trim().toLowerCase();
+    if (!query) {
+        alert("请输入搜索内容！");
+        return;
+    }
     const results = performSearch(query);
     displayResults(results);
 });
 
 function performSearch(query) {
-    // const searchIndex = generateSearchIndex();
     return searchIndex.filter(page => {
         const fullText = (page.title + ' ' + page.content).toLowerCase();
         return fullText.includes(query);
