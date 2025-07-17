@@ -9,7 +9,7 @@ async function buildSearchIndex() {
         
         for (const file of files) {
             const fileResponse = await fetch(`web/${file}`);
-            const text = await fileResponse.text().toLowerCase();
+            const text = await fileResponse.text();
             const parser = new DOMParser();
             const doc = parser.parseFromString(text, 'text/html');
 
