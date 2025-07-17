@@ -587,8 +587,11 @@ div.search-container {
 }
 
 .search-result {
-    margin: 1rem 0;
+    width: 50%;
+    height: auto;
+    margin: 1rem auto;
     padding: 1rem;
+    overflow: auto;
     border: 1px solid #ddd;
     cursor: pointer;
 }
