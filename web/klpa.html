@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../creeper6.css">
+</head>
+<body>
+  <div id="pageContent">
+  <h1 id="更方便修改的射击模组雏形（作者：某只苦力怕）">更方便修改的射击模组雏形（作者：某只苦力怕）</h1>
+  <h2 id="作品简介">作品简介</h2>
+  <ul>
+    <li>新增3d物品：猫猫</li>
+    <li>新增玩家动作优化：走、跑</li>
+    <li>新增玩家独立手臂</li>
+    <li>纯python脚本操作，非常方便二次创作</li>
+  </ul>
+  <h2 id="使用方式">使用方式</h2>
+  <ul>
+    <li>
+      <p>导入模型、贴图、动画后，按一样的写法复制粘贴，即可重复制作同样的内容</p>
+    </li>
+  </ul>
+  <h2 id="清单">清单</h2>
+  <ul>
+    <li>
+      <p>(*核心)代表删除后模组就失效的部分</p>
+      <pre><code>
+.
+├── beh
+│   ├── CustomCatmaobbbScripts
+│   │   ├── client.py   ————    客户端python脚本文件(*核心)
+│   │   ├── modMain.py   ————    python脚本文件(*核心)
+│   │   └── server.py   ————    服务端python脚本文件
+│   └─ netease_items_beh
+│       └── catmaobbb.json   ————    猫猫的物品行为文件(*核心)
+└── res
+    ├── animation_controllers
+    │   └── catmaobbb.animation_controllers.json   ————    猫猫的动画控制器文件(*核心)
+    ├── animations
+    │   ├── better_steve.animation.json   ————    动作优化的动画文件(*核心)
+    │   ├── catmaobbb.animation.json   ————    玩家第三人称手持猫猫时的动画文件(*核心)
+    │   └── catmaobbb.animation_first.json   ————    玩家第一人称手持猫猫时的动画文件(*核心)
+    ├── attachables
+    │   └── catmaobbb.json   ————    猫猫的附着物文件(*核心)
+    ├── models
+    │   └── entity
+    │       ├── catmaobbb.json   ————    猫猫的3d模型(*核心)
+    │       ├── catmaobbb_arm.json   ————    独立手臂的模型(*核心)
+    │       ├── player.armor.base.json   ————    适配玩家动作优化的装备模型(*核心)
+    │       ├── player_armor.json   ————    适配玩家动作优化的装备模型引用模型(*核心)
+    │       └── the_man_animation.json   ————    适配玩家动作优化的玩家模型(*核心)
+    ├── netease_items_res
+    │   └── catmaobbb.json   ————    猫猫的物品材质文件(*核心)
+    ├── render_controllers
+    │   └── catmaobbb_controller.json   ————    独立手臂的渲染控制器(*核心)
+    ├── texts
+    │   └── zh_CN.lang   ————    定义中文名称
+    └── textures
+        ├── item_texture.json   ————    贴图引用文件
+        ├── entity
+        │   └── catmaobbb.png   ————    猫猫的3d模型贴图
+        └── items
+            └── catmaobbb.png   ————    猫猫的物品栏贴图
+      </code></pre>
+    </li>
+  </ul>
+  </div>
+</body>
+</html>

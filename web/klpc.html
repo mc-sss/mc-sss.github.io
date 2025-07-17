@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../creeper6.css">
+</head>
+<body>
+  <h1 id="套装零件（作者：某只苦力怕）">套装零件（作者：某只苦力怕）</h1>
+  <h2 id="作品简介">作品简介</h2>
+  <ul>
+    <li>使用预设零件架构编程实现了大量的功能。</li>
+    <li>模组包括空预设和套装零件。</li>
+    <li>当玩家对应槽位的物品均满足条件后执行设定好的功能。</li>
+    <li>使用本零件可以快速制作各种套装效果，手持物品效果，非常高效方便。</li>
+    <li>纯python脚本操作，写满了注释，非常方便二次创作。</li>
+  </ul>
+  <h2 id="目前功能">目前功能</h2>
+  <ul>
+    <li>检测槽位物品</li>
+    <li>给予药水效果</li>
+    <li>修改攻击力</li>
+    <li>修改生命值</li>
+    <li>是否飞行</li>
+    <li>修改重力</li>
+    <li>是否攻击带火焰</li>
+    <li>是否攻击吸血</li>
+  </ul>
+  <h2 id="使用方式">使用方式</h2>
+  <ul>
+    <span id="trigger">点击展开文本</span>
+    <div id="hiddenText" class="hidden">
+      <li>
+        <p>导入该模组（可以只导入核心部分）</p>
+        <img class="haibao"alt="图片无法加载"src="../tupian/ba001.png">
+      </li>
+      <li>
+        <p>点击资源管理的精简目录里的预设，找到模组里自带的空预设（若导入失败或未导入就新建一个新的空预设，记得开启常加载和预加载），并双击鼠标左键打开</p>
+        <img class="haibao"alt="图片无法加载"src="../tupian/ba002.png">
+        <p>就会进入预设编辑器</p>
+        <img class="haibao"alt="图片无法加载"src="../tupian/ba003.png">
+      </li>
+      <li>
+        <p>点击资源管理的精简目录里的零件，找到模组里自带的零件（若图片中的四个东西有一个导入失败或未导入，需要尝试重新导入）</p>
+        <img class="haibao"alt="图片无法加载"src="../tupian/ba004.png">
+        <p>找到后把鼠标放在零件上面，点击鼠标左键，长按不松开鼠标左键，鼠标拖动到左侧一栏后，松手鼠标左键</p>
+        <p align="center">————长按时————</p>
+        <img class="haibao"alt="图片无法加载"src="../tupian/ba005.png">
+        <p align="center">————拖动中————</p>
+        <img class="haibao"alt="图片无法加载"src="../tupian/ba006.png">
+        <p align="center">————松手后————</p>
+        <img class="haibao"alt="图片无法加载"src="../tupian/ba007.png">
+      </li>
+      <li>
+        <p>在右侧即可看到该零件的属性，可按照自己的需要自行设置</p>
+        <img class="haibao"alt="图片无法加载"src="../tupian/ba008.png">
+        <p align="center">例子</p>
+        <img class="haibao"alt="图片无法加载"src="../tupian/ba009.png">
+      </li>
+    </div>
+  </ul>
+  <h2 id="视频介绍">视频介绍</h2>
+  <iframe src="//player.bilibili.com/player.html?aid=698498523&bvid=BV1km4y1h7kw&cid=1124043865&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+  <br><a href="https://www.bilibili.com/video/BV1km4y1h7kw?share_source=copy_web">视频不清晰的话点我</a>
+  <h2 id="清单">清单</h2>
+  <ul>
+    <li>
+      <p>(*核心)代表删除后模组就失效的部分</p>
+      <pre><code>
+.
+├── beh
+│   ├── Parts
+│   │   └── vol_kuijia
+│   │       ├── __init__.py   ————    python的文件(*核心)
+│   │       ├── vol_kuijia.part   ————    零件文件(*核心)
+│   │       ├── vol_kuijiaPart.py   ————    零件脚本文件(*核心)
+│   │       └── vol_kuijiaPartMeta.py   ————    零件脚本文件(*核心)
+│   └── Presets
+│       └── Empty0.preset   ————    预设文件
+└── res
+    └── 无
+      </code></pre>
+    </li>
+  </ul>
+<script src="../script.js"></script>
+</body>
+</html>
