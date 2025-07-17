@@ -69,12 +69,12 @@ document.getElementById("searchForm").addEventListener("submit", function(e) {
 });
 
 function performSearch(query) {
-    const searchIndex = [
-        { title: "如何学习 JavaScript", url: "/js-guide", content: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" },
-        { title: "CSS 布局技巧", url: "/css-tips", content: "xxx" },
-        { title: "HTML5 新特性", url: "/html5-features", content: "xxx" },
-        { title: "JavaScript 框架对比", url: "/js-frameworks", content: "xxx" }
-    ];
+    // const searchIndex = [
+    //     { title: "如何学习 JavaScript", url: "/js-guide", content: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" },
+    //     { title: "CSS 布局技巧", url: "/css-tips", content: "xxx" },
+    //     { title: "HTML5 新特性", url: "/html5-features", content: "xxx" },
+    //     { title: "JavaScript 框架对比", url: "/js-frameworks", content: "xxx" }
+    // ];
     return searchIndex.filter(page => {
         const fullText = (page.title + ' ' + page.content).toLowerCase();
         return fullText.includes(query);
