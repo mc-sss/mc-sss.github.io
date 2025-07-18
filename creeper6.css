@@ -524,22 +524,6 @@ body a:hover {
     display: none;
 }
 
-.fds{
-    border:none;
-    background-size:contain;
-    width:20%;
-    height:auto;
-}
-
-#fdh{
-    background-color:rgba(0,0,0,0.7);
-    position:absolute;
-    left:0;top:0;width:100%;height:100%;
-    position:fixed;
-    display:none;
-    z-index:1000;
-}
-
 div.search-container {
     padding: 10px 0;
 }
@@ -6240,4 +6224,33 @@ svg.DocSearch-Hit-Select-Icon {
 
 svg[data-v-ce626c7c] {
     flex: none
+}
+
+.with-submenu {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+.arrow {
+    margin-left: 8px;
+    font-size: 14px;
+    color: #666;
+    transition: transform 0.2s;
+}
+.arrow::after {
+  content: ">";
+}
+/* 子菜单默认隐藏 */
+.submenu {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 8px;
+    display: none;
+}
+/* 展开时的样式 */
+.submenu.expanded {
+    display: block;
+}
+.with-submenu.expanded .arrow {
+    transform: rotate(90deg);
 }
