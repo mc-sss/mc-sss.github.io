@@ -28,8 +28,10 @@
   </ul>
   <h2 id="使用方式">使用方式</h2>
   <ul>
-    <span id="trigger">♦点击展开文本</span>
-    <div id="hiddenText" class="hidden">
+    <div class="with-submenu">
+      <span>使用方式</span><span class="arrow"></span>
+    </div>
+    <div class="submenu">
       <li>
         <p>导入该模组（可以只导入核心部分）</p>
         <img class="haibao"alt="图片无法加载"src="../tupian/ba001.png"loading="lazy">
@@ -44,11 +46,11 @@
         <p>点击资源管理的精简目录里的零件，找到模组里自带的零件（若图片中的四个东西有一个导入失败或未导入，需要尝试重新导入）</p>
         <img class="haibao"alt="图片无法加载"src="../tupian/ba004.png"loading="lazy">
         <p>找到后把鼠标放在零件上面，点击鼠标左键，长按不松开鼠标左键，鼠标拖动到左侧一栏后，松手鼠标左键</p>
-        <p style="text-align: center;">————长按时————</p>
+        <p style="text-align: center;"><span class="tree-symbol" data-symbol="————"></span>长按时<span class="tree-symbol" data-symbol="————"></span></p>
         <img class="haibao"alt="图片无法加载"src="../tupian/ba005.png"loading="lazy">
-        <p style="text-align: center;">————拖动中————</p>
+        <p style="text-align: center;"><span class="tree-symbol" data-symbol="————"></span>拖动中<span class="tree-symbol" data-symbol="————"></span></p>
         <img class="haibao"alt="图片无法加载"src="../tupian/ba006.png"loading="lazy">
-        <p style="text-align: center;">————松手后————</p>
+        <p style="text-align: center;"><span class="tree-symbol" data-symbol="————"></span>松手后<span class="tree-symbol" data-symbol="————"></span></p>
         <img class="haibao"alt="图片无法加载"src="../tupian/ba007.png"loading="lazy">
       </li>
       <li>
@@ -68,17 +70,17 @@
       <p>(*核心)代表删除后模组就失效的部分</p>
       <pre><code>
 .
-├── beh
-│   ├── Parts
-│   │   └── vol_kuijia
-│   │       ├── __init__.py   ————    python的文件(*核心)
-│   │       ├── vol_kuijia.part   ————    零件文件(*核心)
-│   │       ├── vol_kuijiaPart.py   ————    零件脚本文件(*核心)
-│   │       └── vol_kuijiaPartMeta.py   ————    零件脚本文件(*核心)
-│   └── Presets
-│       └── Empty0.preset   ————    预设文件
-└── res
-    └── 无
+<span class="tree-symbol" data-symbol="├──"></span> beh
+<span class="tree-symbol" data-symbol="│"></span>   <span class="tree-symbol" data-symbol="├──"></span> Parts
+<span class="tree-symbol" data-symbol="│"></span>   <span class="tree-symbol" data-symbol="│"></span>   <span class="tree-symbol" data-symbol="└──"></span> vol_kuijia
+<span class="tree-symbol" data-symbol="│"></span>   <span class="tree-symbol" data-symbol="│"></span>       <span class="tree-symbol" data-symbol="├──"></span> __init__.py   <span class="tree-symbol" data-symbol="————"></span>    python的文件(*核心)
+<span class="tree-symbol" data-symbol="│"></span>   <span class="tree-symbol" data-symbol="│"></span>       <span class="tree-symbol" data-symbol="├──"></span> vol_kuijia.part   <span class="tree-symbol" data-symbol="————"></span>    零件文件(*核心)
+<span class="tree-symbol" data-symbol="│"></span>   <span class="tree-symbol" data-symbol="│"></span>       <span class="tree-symbol" data-symbol="├──"></span> vol_kuijiaPart.py   <span class="tree-symbol" data-symbol="————"></span>    零件脚本文件(*核心)
+<span class="tree-symbol" data-symbol="│"></span>   <span class="tree-symbol" data-symbol="│"></span>       <span class="tree-symbol" data-symbol="└──"></span> vol_kuijiaPartMeta.py   <span class="tree-symbol" data-symbol="————"></span>    零件脚本文件(*核心)
+<span class="tree-symbol" data-symbol="│"></span>   <span class="tree-symbol" data-symbol="└──"></span> Presets
+<span class="tree-symbol" data-symbol="│"></span>       <span class="tree-symbol" data-symbol="└──"></span> Empty0.preset   <span class="tree-symbol" data-symbol="————"></span>    预设文件
+<span class="tree-symbol" data-symbol="└──"></span> res
+    <span class="tree-symbol" data-symbol="└──"></span> 无
       </code></pre>
     </li>
   </ul>
