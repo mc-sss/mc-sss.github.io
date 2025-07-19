@@ -34,13 +34,13 @@ body pre {
 
 body::before {
     display: table;
-    content: \"\"
+    content: ""
 }
 
 body::after {
     display: table;
     clear: both;
-    content: \"\"
+    content: ""
 }
 
 body>*:first-child {
@@ -131,7 +131,7 @@ body code {
 body code::before,
 body code::after {
     letter-spacing: -.2em;
-    content: \"\\00a0\"
+    content: "\\00a0"
 }
 
 body code br {
@@ -154,7 +154,7 @@ body pre>code {
 
 body pre>code::before,
 body pre>code::after {
-    content: \"\"
+    content: ""
 }
 
 body pre {
@@ -376,7 +376,7 @@ button {
 }
 
 :root {
-    --vp-header-anchor-symbol: \"#\"
+    --vp-header-anchor-symbol: "#"
 }
 
 :root {
@@ -622,8 +622,12 @@ a {
 }
 
 ul {
-    list-style: none;
+    list-style: disc;
     margin: 0;
+    padding: 0
+}
+ul.no-list {
+    list-style-type: none;
     padding: 0
 }
 
