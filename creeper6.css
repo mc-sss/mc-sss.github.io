@@ -1347,7 +1347,7 @@ p {
 }
 
 .with-submenu {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     cursor: pointer;
 }
