@@ -3,6 +3,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../creeper6.css">
 </head>
 <body>
@@ -68,20 +69,37 @@
   <ul>
     <li>
       <p>(*核心)代表删除后模组就失效的部分</p>
-      <pre><code>
-.
-<span class="tree-symbol" data-symbol="├──"></span> beh
-<span class="tree-symbol" data-symbol="│"></span>   <span class="tree-symbol" data-symbol="├──"></span> Parts
-<span class="tree-symbol" data-symbol="│"></span>   <span class="tree-symbol" data-symbol="│"></span>   <span class="tree-symbol" data-symbol="└──"></span> vol_kuijia
-<span class="tree-symbol" data-symbol="│"></span>   <span class="tree-symbol" data-symbol="│"></span>       <span class="tree-symbol" data-symbol="├──"></span> __init__.py   <span class="tree-symbol" data-symbol="————"></span>    python的文件(*核心)
-<span class="tree-symbol" data-symbol="│"></span>   <span class="tree-symbol" data-symbol="│"></span>       <span class="tree-symbol" data-symbol="├──"></span> vol_kuijia.part   <span class="tree-symbol" data-symbol="————"></span>    零件文件(*核心)
-<span class="tree-symbol" data-symbol="│"></span>   <span class="tree-symbol" data-symbol="│"></span>       <span class="tree-symbol" data-symbol="├──"></span> vol_kuijiaPart.py   <span class="tree-symbol" data-symbol="————"></span>    零件脚本文件(*核心)
-<span class="tree-symbol" data-symbol="│"></span>   <span class="tree-symbol" data-symbol="│"></span>       <span class="tree-symbol" data-symbol="└──"></span> vol_kuijiaPartMeta.py   <span class="tree-symbol" data-symbol="————"></span>    零件脚本文件(*核心)
-<span class="tree-symbol" data-symbol="│"></span>   <span class="tree-symbol" data-symbol="└──"></span> Presets
-<span class="tree-symbol" data-symbol="│"></span>       <span class="tree-symbol" data-symbol="└──"></span> Empty0.preset   <span class="tree-symbol" data-symbol="————"></span>    预设文件
-<span class="tree-symbol" data-symbol="└──"></span> res
-    <span class="tree-symbol" data-symbol="└──"></span> 无
-      </code></pre>
+      <treeview>
+        <ul>
+          <li>.
+            <ul>
+              <li>beh
+                <ul>
+                  <li>Parts</li>
+                  <li>vol_kuijia
+                    <ul>
+                      <li>__init__.py  ————  python的文件(*核心)</li>
+                      <li>vol_kuijia.part  ————  零件文件(*核心)</li>
+                      <li>vol_kuijiaPart.py  ————  零件脚本文件(*核心)</li>
+                      <li>vol_kuijiaPartMeta.py  ————  零件脚本文件(*核心)</li>
+                    </ul>
+                  </li>
+                  <li>Presets
+                    <ul>
+                      <li>Empty0.preset  ————  预设文件</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>res
+                <ul>
+                  <li>无</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </treeview>
     </li>
   </ul>
 <script src="../script.js"></script>
