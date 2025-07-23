@@ -4,36 +4,68 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../creeper6.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <!-- 引入常见语言支持 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/json.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/python.min.js"></script>
 </head>
 <body>
   <h1 id="了解概念">了解概念</h1>
   <h2 id="来源及免责声明">来源及免责声明</h2>
   <ul>
-    <li>原帖地址：<a href="https://mc.163.com/dev/mcmanual/mc-dev/mconline/60-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%88%9B%E9%80%A0%E8%90%A5%E6%95%99%E7%A8%8B/%E7%8E%A9%E6%B3%95%E7%BB%84%E4%BB%B6%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/4-%E4%BA%86%E8%A7%A3%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E7%8E%A9%E6%B3%95%E7%BB%84%E4%BB%B6%E7%AD%96%E5%88%92%E6%80%9D%E8%B7%AF/1-%E7%8E%A9%E6%B3%95%E7%BB%84%E4%BB%B6%E7%AD%96%E5%88%92%E6%80%9D%E8%B7%AF.html">玩法组件策划思路</a></li>
+    <li>原帖地址：
+      <ul>
+        <li><a href="https://mc.163.com/dev/mcmanual/mc-dev/mcguide/20-%E7%8E%A9%E6%B3%95%E5%BC%80%E5%8F%91/13-%E6%A8%A1%E7%BB%84SDK%E7%BC%96%E7%A8%8B/1-Mod%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B/1-Mod%E7%AE%80%E4%BB%8B.html">Mod简介</a></li>
+        <li><a href="https://mc.163.com/dev/mcmanual/mc-dev/mcguide/20-%E7%8E%A9%E6%B3%95%E5%BC%80%E5%8F%91/10-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/1-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5.html">我的世界基础概念</a></li>
+        <li><a href="https://mcwiki.easecation.net/wiki/guide/introduction.html">入门指南</a></li>
+      </ul>
+    </li>
     <li>免责声明：本账号/页面所发布内容（包括但不限于文字、图片、音频、视频、链接等）均来源于网络或个人创作。若存在未经原作者授权的转载或使用行为，纯属无意为之。我们尊重一切知识产权，并严格遵守《中华人民共和国著作权法》、《信息网络传播权保护条例》等相关法律法规。如您发现内容侵犯您的合法权益，请立即通过以下方式联系我们：① qq【2420038530】② qq群聊【564303592】，我们承诺：收到通知后24小时内核实并删除侵权内容；不将您的个人信息用于任何商业目的；后续加强内容审核，避免类似问题再次发生。免责范围：因内容侵权导致的直接或间接损失（包括但不限于律师费、诉讼费、商誉损失等），我们不承担赔偿责任，但会积极配合协商解决。</li>
   </ul>
-  <h2 id="简介">简介</h2>
-  <p>在开始制作一个玩法组件之前，我们需要对这个玩法组件的玩法有一定的思考，这就叫做制定需求。</p>
-  <p>在制定好需求后，我们在制作玩法组件时就会有更清晰的思路，并在一定程度上提高制作的效率。</p>
-  <h2 id="需求制定">需求制定</h2>
-  <p>制作一个玩法组件，我们需要制定以下方面的需求。</p>
+  <h2 id="什么是Mod？">什么是Mod？</h2>
+  <p>在《我的世界》里，mod（组件）为游戏带来了无限拓展可能。它主要由游戏地图、功能玩法、材质光影、皮肤和其他不常用的部分组成。这些丰富多样的mod，让每个玩家都能在《我的世界》中打造出属于自己的独特天地。</p>
+  <p>皮肤其实就是一张png贴图，搜索引擎搜索“我的世界皮肤制作”即可找到很多大神分享的教程。</p>
+  <p>功能玩法与材质光影都是通过“附加包”来制作。</p>
+  <p>游戏地图一般是一个搭建好的游戏存档，但是还可以添加“附加包”来实现更丰富的玩法。</p>
+  <h2 id="什么是附加包？">什么是附加包？</h2>
+  <p>"附加包"（Addon）是《我的世界》基岩版中与“Java版模组”相对应的内容扩展形式，是基岩版对mod的一种支持方式。</p>
+  <p>与Java版不同的是，Java版模组侧重于修改游戏本身，而附加包则遵循微软提供的开发规范，通过添加新内容来扩展游戏。</p>
+  <p>附加包分为两种类型：资源包（Resource Pack）和行为包（Behavior Pack）。两者可以独立运行，但通常配合使用。</p>
+  <h2 id="附加包可以做什么">附加包可以做什么</h2>
+  <p>附加包允许我们通过“修改”或“移除”现有内容以及“添加”自定义内容来改变Minecraft的游戏体验。</p>
+  <p>它们功能强大，可以创建自定义实体、物品、方块，以及自定义战利品表和合成配方等。你的想象力就是唯一的限制！</p>
+  <p>附加包主要使用结构化数据格式JSON编写。本质上，附加包是一系列JSON文件、图像和声音文件的集合，通过这些文件以某种方式修改或增强游戏内容。</p>
+  <h2 id="理解JSON">理解JSON</h2>
+  <p>JSON是一种简单的文本文件格式，既方便人类阅读又便于计算机解析。</p>
+  <p>基岩版使用.json文件作为附加包的"编程语言"，因此您需要扎实掌握JSON的读写能力！</p>
+  <p>编写JSON时最关键的是必须确保文件"完全无错误"，否则整个文件将无法正常工作。即使一个错误的字符或多余逗号都会导致解析失败。因此，编写有效JSON至关重要。</p>
+  <p>JSON中使用多种格式表示数据，每种格式对应特定数据类型：</p>
+  <table tabindex="0"><thead><tr><th>名称</th><th>示例</th><th>说明</th></tr></thead><tbody><tr><td>字符串</td><td>"Hello!"</td><td>文本字符。必须用引号包裹</td></tr><tr><td>整型</td><td>15</td><td>整数。无需引号</td></tr><tr><td>浮点型</td><td>1.2</td><td>小数。无需引号</td></tr><tr><td>布尔值</td><td>true</td><td>只能是true或false。无需引号</td></tr></tbody></table>
+  <p>除了上述类型，还有两种特殊数据结构用于“嵌套”数据：</p>
   <ul>
-    <li>大体玩法</li>
-    <li>物品</li>
-    <li>方块</li>
-    <li>实体</li>
-    <li>交互逻辑</li>
-    <li>UI</li>
+    <li>数组使用方括号[]表示，本质是“有序列表”。列表元素可以是任意数据类型，元素间用逗号分隔。</li>
+    <li>对象使用花括号{}表示，包含“键值对”集合。键名称为key，对应数据称为value。键值对的格式为<code>"&lt;key&gt;": &lt;value&gt;</code>，注意键名必须用引号包裹且后接冒号。</li>
   </ul>
-  <p>制定了这些需求后，我们就会对需要制作的玩法组件有一个大致的框架，我们可以从这份策划案中得到一些有用的信息。</p>
-  <p>比如有哪些贴图、模型、动画需要制作？有哪些方块、物品、实体需要配置？每个方块物品之间的逻辑关系是什么，合成配方需要如何设置？</p>
-  <p>有了这些基础的分析，在制作时就可以更加清楚每一块自己需要做的事情。如果是团队开发，则可以使团队成员之间的分工更加清晰，美工、技术、策划各司其职，同时有条不紊地进行各自的本职工作，最后将其汇聚起来，组成一个完整的玩法组件。</p>
-  <p>在制定需求时，一定要认清自己的开发能力，适当的对功能做加减法。</p>
-  <p>难度过高的需求不仅会让自己制作时毫无头绪，也会拖慢制作进度，导致玩法无法实现。</p>
-  <p>而清楚地根据现阶段的开发能力，可以在制作玩法组件完成后获得一定的成就感，从而激发自己的创作热情。</p>
-  <h1 id="时间规划">时间规划</h1>
-  <p>光有了需求还不够，如何分配各个阶段的开发时间，也是非常重要的事情。</p>
-  <p>在制定完需求后，分别对其各个部分预估工作量，制定一个预期的工期。</p>
-  <p>合理的时间规划可以督促自己在规定的时间内完成工作，有效的防止拖延。</p>
+  <div class="code-container">
+    <div class="code-header">
+        <span class="code-format">JSON 格式</span>
+        <button class="copy-btn" onclick="copyCode(this)">复制代码</button>
+    </div>
+    <pre><code class="language-json">{
+    "my_string": "你好",
+    "my_int": "15",
+    "my_float": 1.2,
+    "my_bool": true,
+    "my_ints": [1, 2, 3],
+    "my_strings": ["红", "蓝"],
+    "my_dict": {
+        "my_ints": [1, 2, 3],
+        "my_bool": true
+    }
+}</code></pre>
+  </div>
+<script src="../script.js"></script>
 </body>
 </html>
