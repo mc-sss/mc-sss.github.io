@@ -528,8 +528,9 @@ h3 {
 p {
     margin: 0
 }
+b,
 strong {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif-bold, sans-serif;
     padding: 0 5px;
     font-weight: bold;
     font-synthesis: weight;
