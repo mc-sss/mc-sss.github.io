@@ -528,9 +528,11 @@ h3 {
 p {
     margin: 0
 }
-b {
+strong {
+    /* font-family: -apple-system, BlinkMacSystemFont, sans-serif; */
     padding: 0 5px;
-    font-weight: bold
+    /* font-weight: bold; */
+    /* -webkit-font-smoothing: antialiased; */
 }
 a,
 button,
