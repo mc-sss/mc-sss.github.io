@@ -1005,6 +1005,9 @@ p {
 .with-submenu {
     display: inline;
     align-items: center;
+    position: relative;
+}
+.with-submenu span{
     cursor: pointer;
 }
 .arrow {
@@ -1027,6 +1030,19 @@ p {
 }
 .submenu.expanded {
     display: block;
+}
+.tooltip {
+    position: absolute;
+    top: -30px; /* 调整到标题上方 */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    pointer-events: none; /* 避免 tooltip 干扰鼠标事件 */
 }
 
 

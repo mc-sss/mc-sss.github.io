@@ -1,19 +1,38 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 获取所有带子菜单的项
-    const menuItems = document.querySelectorAll('.with-submenu');
+    const menuItems = document.querySelectorAll('.with-submenu span');
     menuItems.forEach(item => {
-        const submenu = item.nextElementSibling; // 获取下一个 <ul class="submenu">
-        item.addEventListener('click', function(e) {
-            // 阻止链接跳转（如果需要）
-            e.preventDefault();
-            // 切换子菜单显示
-            submenu.classList.toggle('expanded');
-            item.classList.toggle('expanded');
-        });
+        item.setAttribute('title', '点击展开/收起');
+        const container = item.closest('.with-submenu');
+        // 找到对应的子菜单
+        const submenu = container?.nextElementSibling;
+        if (submenu && submenu.classList.contains('submenu')) {
+            item.addEventListener('click', function(e) {
+                // 阻止链接跳转（如果需要）
+                e.preventDefault();
+                // 切换子菜单显示
+                submenu.classList.toggle('expanded');
+                container.classList.toggle('expanded');
+            });
+        };
     });
 });
+// document.addEventListener('DOMContentLoaded', function() {
+//   // 绑定点击事件到 h2 和 span
+//   document.querySelectorAll('.with-submenu h2, .with-submenu span').forEach(trigger => {
+//     const container = trigger.parentElement;
+//     const submenu = container.nextElementSibling;
+//     trigger.addEventListener('click', function(e) {
+//       e.preventDefault();
+//       submenu.classList.toggle('expanded');
+//       container.classList.toggle('expanded'); // 切换箭头方向
+//     });
+//   });
+// });
 
+try {
 hljs.highlightAll();
+} catch (error) {}
 
 function copyCode(button) {
     const container = button.closest('.code-container');

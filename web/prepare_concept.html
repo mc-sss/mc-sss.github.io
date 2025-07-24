@@ -17,14 +17,53 @@
   <ul>
     <li>原帖地址：
       <ul>
-        <li><a href="https://mc.163.com/dev/mcmanual/mc-dev/mcguide/20-%E7%8E%A9%E6%B3%95%E5%BC%80%E5%8F%91/13-%E6%A8%A1%E7%BB%84SDK%E7%BC%96%E7%A8%8B/1-Mod%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B/1-Mod%E7%AE%80%E4%BB%8B.html">Mod简介</a></li>
-        <li><a href="https://mc.163.com/dev/mcmanual/mc-dev/mcguide/20-%E7%8E%A9%E6%B3%95%E5%BC%80%E5%8F%91/10-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/1-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5.html">我的世界基础概念</a></li>
+        <li><a href="https://mc.163.com/dev/mcmanual/mc-dev/mcguide/20-玩法开发/10-基本概念/1-我的世界基础概念.html">我的世界基础概念</a></li>
+        <li><a href="https://mc.163.com/dev/mcmanual/mc-dev/mcguide/20-玩法开发/13-模组SDK编程/1-Mod开发简介/1-Mod简介.html">Mod简介</a></li>
         <li><a href="https://mcwiki.easecation.net/wiki/guide/introduction.html">入门指南</a></li>
-        <li><a href="https://mc.163.com/dev/mcmanual/mc-dev/mconline/5-%E6%B8%B8%E6%88%8F%E5%85%A5%E9%97%A8%E4%B8%8E%E5%9F%BA%E7%A1%80%E8%AE%B2%E8%A7%A3/34-%E7%90%86%E8%A7%A3Json%EF%BC%88%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8%EF%BC%89/1-JSON%E5%9C%A8%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%9F%BA%E5%B2%A9%E7%89%88%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8.html">JSON在我的世界基岩版中的应用</a></li>
+        <li><a href="https://mc.163.com/dev/mcmanual/mc-dev/mconline/5-游戏入门与基础讲解/34-理解Json（数据驱动）/1-JSON在我的世界基岩版中的应用.html">JSON在我的世界基岩版中的应用</a></li>
+        <li><a href="https://mcwiki.easecation.net/wiki/guide/addons.html">Addons 详解</a></li>
+        <li><a href="https://mcwiki.easecation.net/wiki/concepts/namespaces.html">命名空间</a></li>
+        <li><a href="https://mcwiki.easecation.net/wiki/guide/custom-item.html">创建自定义物品</a></li>
       </ul>
     </li>
     <li>免责声明：本账号/页面所发布内容（包括但不限于文字、图片、音频、视频、链接等）均来源于网络或个人创作。若存在未经原作者授权的转载或使用行为，纯属无意为之。我们尊重一切知识产权，并严格遵守《中华人民共和国著作权法》、《信息网络传播权保护条例》等相关法律法规。如您发现内容侵犯您的合法权益，请立即通过以下方式联系我们：① qq【2420038530】② qq群聊【564303592】，我们承诺：收到通知后24小时内核实并删除侵权内容；不将您的个人信息用于任何商业目的；后续加强内容审核，避免类似问题再次发生。免责范围：因内容侵权导致的直接或间接损失（包括但不限于律师费、诉讼费、商誉损失等），我们不承担赔偿责任，但会积极配合协商解决。</li>
   </ul>
+  <div>
+    <div class="with-submenu">
+      <h2 id="《我的世界》基础概念及其名词"><span>《我的世界》基础概念及其名词</span><span class="arrow"></span></h2>
+    </div>
+    <div class="submenu">
+      <h3>世界</h3>
+      <P>表示游戏的单位，单个游戏存档、单个网络服务器等都是一个世界。</P>
+      <h3>区块</h3>
+      <p>区块是世界里一个大小为16×384×16的部分，是游戏地图加载\卸载的基本单位。</p>
+      <p>当玩家第一次出现在世界时会在其周围生成区块，随着玩家对世界的探索，相邻的区块也会被生成。</p>
+      <h3>实体</h3>
+      <p>具有可区别性的物体，不一定是物理存在的实体。</p>
+      <p>包括服务端运算的，会保存到存档的生物实体、物品实体、方块实体、抛射物实体等</p>
+      <p>以及纯客户端表现，退出游戏后就销毁的特效实体（粒子实体、序列帧实体）、文字面板实体等。</p>
+      <h3>生物</h3>
+      <p>指游戏世界中有生命的，可移动的一类实体。其中玩家也属于生物的一种。</p>
+      <h3>玩家</h3>
+      <P>玩家所控制的实体对象，同时也属于生物的一种。包括本地玩家和其他玩家，在游戏中，由玩家自己控制的称为本地玩家，否则为其他玩家。</P>
+      <h3>物品</h3>
+      <p>物品栏中具有使用属性的物品、地面上的掉落物等都称为物品。其中掉落物也是实体的一种。</p>
+      <h3>方块</h3>
+      <p>游戏中场景的基本组成单位，长宽高均为1单位长度的立方体网格，不同的方块具有不同的材质。</p>
+      <h3>抛射物</h3>
+      <p>受外力被抛射空中飞行的实体，受重力与摩擦力影响，例如游戏中射出的箭。</p>
+      <h3>生物群系</h3>
+      <p>游戏中生成的世界被划分为一个个不同的自然环境，例如森林、丛林、沙漠和针叶林等，这些都是不同的生物群系。</p>
+      <h3>序列帧</h3>
+      <p>通过一帧帧的图片不断进行切换形成的动画效果，在游戏中为一个平面面片。</p>
+      <h3>粒子</h3>
+      <p>通过不断发射多个不同大小规模的平面面片形成的特效效果，通过替换贴图材质等可以模拟丰富的表现。</p>
+      <h3>文字面板</h3>
+      <p>本质上为序列帧的文字面板，功能上与文本类似，在游戏中包括伤害飘字，实体头顶名称等内容。</p>
+      <h3>UI</h3>
+      <p>UI界面，游戏和用户之间进行交互和信息交换的界面。玩家可以通过触发UI来控制对应的游戏逻辑。</p>
+    </div>
+  </div>
   <h2 id="什么是Mod？">什么是Mod？</h2>
   <p>在《我的世界》里，mod（组件）为游戏带来了无限拓展可能。它主要由游戏地图、功能玩法、材质光影、皮肤和其他不常用的部分组成。这些丰富多样的mod，让每个玩家都能在《我的世界》中打造出属于自己的独特天地。</p>
   <p>皮肤其实就是一张png贴图，搜索引擎搜索<b>我的世界皮肤制作</b>即可找到很多大神分享的教程。</p>
@@ -36,8 +75,7 @@
   <p>附加包分为两种类型：<b>资源包</b>（resource_pack）和<b>行为包</b>（behavior_pack）。两者可以独立运行，但通常配合使用。</p>
   <div>
     <div class="with-submenu">
-      <h2 id="附加包可以做什么" style="margin-bottom:0">附加包可以做什么</h2>
-      <span class="arrow"></span>
+      <h2 id="附加包可以做什么"><span>附加包可以做什么</span><span class="arrow"></span></h2>
     </div>
     <div class="submenu">
       <p>附加包允许我们通过<b>修改</b>或<b>移除</b>现有内容以及<b>添加</b>自定义内容来改变Minecraft的游戏体验。</p>
@@ -47,7 +85,7 @@
   </div>
   <div>
     <div class="with-submenu">
-      <h2 id="理解JSON">理解JSON<span class="arrow"></span></h2>
+      <h2 id="理解JSON"><span>理解JSON</span><span class="arrow"></span></h2>
     </div>
     <div class="submenu">
       <p>JSON是一种简单的文本文件格式，既方便人类阅读又便于计算机解析。</p>
@@ -148,8 +186,81 @@
       <p>如果你仔细查看过附加包的<b>文件结构</b>，你会发现有些.JSON文件位于名字包含beh的文件夹下，而有些位于名字包含res的文件夹下。前者被称为<b>行为包</b>，后者被称为<b>资源包</b>。</p>
       <p>不管在行为包还是资源包中，.JSON文件一般都是成组地被分在不同的子文件夹下。</p>
       <p>比如：战利品表就都位于loot_tables文件夹内，而网易的自定义方块则位于netease_blocks文件夹下。</p>
+      <p>这里，我们给出一些常用的文件夹名称及其内容物：</p>
+      <ul>
+        <li>
+          <div class="with-submenu">
+            <span>行为包</span><span class="arrow"></span>
+          </div>
+          <div class="submenu">
+            <table><thead><tr><th>行为包</th> <th>内容</th></tr></thead> <tbody><tr><td>entities</td> <td>实体服务端（实体行为文件）</td></tr> <tr><td>netease_items_beh</td> <td>中国版物品服务端（物品行为文件）</td></tr> <tr><td>netease_blocks</td> <td>中国版方块</td></tr> <tr><td>netease_dimension</td> <td>中国版维度</td></tr> <tr><td>netease_biomes</td> <td>中国版地物</td></tr> <tr><td>netease_features</td> <td>中国版特征（地物）</td></tr> <tr><td>netease_feature_rules</td> <td>中国版特征规则（地物规则）</td></tr> <tr><td>netease_tab</td> <td>中国版物品分类</td></tr> <tr><td>netease_group</td> <td>中国版物品分组</td></tr> <tr><td>netease_recipes</td> <td>中国版配方</td></tr> <tr><td>netease_effects</td> <td>中国版状态效果</td></tr> <tr><td>netease_enchants</td> <td>中国版魔咒（附魔）</td></tr> <tr><td>netease_micro_blocks</td> <td>中国版微缩方块</td></tr> <tr><td>netease_large_feature_pools</td> <td>中国版拼图结构池</td></tr> <tr><td>netease_large_feature_rules</td> <td>中国版拼图规则</td></tr> <tr><td>customBooks</td> <td>中国版书本</td></tr> <tr><td>customAchievements</td> <td>中国版成就</td></tr> <tr><td>animations</td> <td>服务端动画</td></tr> <tr><td>animation_controllers</td> <td>服务端动画控制器</td></tr> <tr><td>loot_tables</td> <td>战利品表</td></tr> <tr><td>trading</td> <td>交易表</td></tr> <tr><td>spawn_rules</td> <td>实体生成规则</td></tr> <tr><td>structures</td> <td>结构</td></tr> <tr><td>functions</td> <td>函数</td></tr> <tr><td>storyline</td> <td>中国版蓝图</td></tr> <tr><td>config</td> <td>中国版配置</td></tr></tbody></table>
+          </div>
+        </li>
+        <li>
+          <div class="with-submenu">
+            <span>资源包</span><span class="arrow"></span>
+          </div>
+          <div class="submenu">
+            <table><thead><tr><th>资源包</th> <th>内容</th></tr></thead> <tbody><tr><td>textures</td> <td>纹理</td></tr> <tr><td>sounds</td> <td>音效、音乐</td></tr> <tr><td>texts</td> <td>语言文件</td></tr> <tr><td>materials</td> <td>材质</td></tr> <tr><td>shaders</td> <td>着色器</td></tr> <tr><td>models</td> <td>模型</td></tr> <tr><td>entity</td> <td>实体客户端（实体材质文件）</td></tr> <tr><td>attachables</td> <td>附着物</td></tr> <tr><td>animations</td> <td>动画</td></tr> <tr><td>animation_controllers</td> <td>动画控制器</td></tr> <tr><td>render_controllers</td> <td>渲染控制器</td></tr> <tr><td>netease_items_res</td> <td>中国版物品客户端（物品材质文件）</td></tr> <tr><td>effects</td> <td>中国版特效（粒子）</td></tr> <tr><td>particles</td> <td>国际版粒子</td></tr> <tr><td>fog</td> <td>迷雾</td></tr> <tr><td>ui</td> <td>JSON UI</td></tr></tbody></table>
+          </div>
+        </li>
+      </ul>
+      <p>当然，除了文件夹之外，还有一些零散的单独文件，比如：不论是资源包还是行为包，都必须具有的最重要的文件manifest.json，被称为清单文件。</p>
+      <p>这些零散的文件可以自行在附加包中探索，观察具体的结构。</p>
     </div>
   </div>
+  <h2 id="行为包">行为包</h2>
+  <p>行为包（behavior_pack），也称为<b>附加包服务端</b>或<b>beh文件夹</b>，负责附加包的<b>逻辑功能</b>。主要包括：</p>
+  <ul>
+    <li>实体行为</li>
+    <li>合成配方</li>
+    <li>战利品表</li>
+    <li>自定义函数</li>
+  </ul>
+  <h2 id="资源包">资源包</h2>
+  <p>资源包（resource_pack），也称为<b>附加包客户端</b>或<b>res文件夹</b>，负责附加包的<b>视觉效果</b>和<b>声音</b>。主要包括：</p>
+  <ul>
+    <li>材质贴图</li>
+    <li>音效</li>
+    <li>几何模型</li>
+    <li>动画</li>
+    <li>粒子效果</li>
+  </ul>
+  <h2 id="包间通信">包间通信</h2>
+  <p>大多数情况下需要同时使用beh文件夹和res文件夹。这两个包之间会进行通信或相互依赖才能正常运行，即在一个包中定义的资源可以被另一个包访问。</p>
+  <p>例如创建自定义实体时需要两个文件：</p>
+  <ul>
+    <li>实体服务端（实体行为文件）：描述实体<b>行为</b></li>
+    <li>实体客户端（实体材质文件）：描述实体<b>外观</b></li>
+  </ul>
+  <p>为了让游戏正确识别并配对两个文件，我们需要为实体定义唯一标识符。原版猪的标识符是minecraft:pig，包含两部分：</p>
+  <ul>
+    <li>命名空间（minecraft）</li>
+    <li>实体名称（pig）</li>
+  </ul>
+  <h2 id="命名空间">命名空间</h2>
+  <p>命名空间是用于标识内容归属的标识符。你可以将它们理解为文件夹。命名空间有助于避免命名冲突的产生。</p>
+  <p>在附加包创作中，命名空间本质上可以看作是"冒号左侧的部分"。例如在minecraft:zombie中，minecraft就是命名空间。其通用格式为<b>命名空间:名称</b>。</p>
+  <p>举个具体例子说明命名空间的重要性：假设你创建了一个新生物并命名为minecraft:shark，却不知道应该为自定义内容使用自己的命名空间。一年后Mojang决定在游戏中加入鲨鱼！此时就会出现两个minecraft:shark的定义，导致命名冲突，你的附加包将无法正常运行。</p>
+  <p>如果你当初使用<b>你的命名空间:shark</b>，就不会发生这种冲突。</p>
+  <p>合适的命名空间建议使用个人独特标识。类似mob、cars、content或custom这样的通用词是糟糕的命名空间选择，因为其他开发者可能会使用相同的名称。</p>
+  <p>合适的命名空间应当简短。你将会频繁使用你的命名空间，因此越简短越好。类似george_carlin_the_comedian这样的长命名空间就不太合适。</p>
+  <p>对于个人项目，建议使用玩家ID的简化版本；商业项目则建议使用公司名称的合适变体。</p>
+  <p>优秀示例：</p>
+  <ul>
+    <li>gcarlin</li>
+    <li>sirlich</li>
+    <li>cubeworld</li>
+    <li>bworks</li>
+  </ul>
+  <p>切勿使用minecraft或minecon作为命名空间（除非修改原版文件）。</p>
+  <p>简而言之，应当尽可能多地使用命名空间。</p>
+  <p>命名空间的使用场景：</p>
+  <ul>
+    <li>基础原则：为游戏添加自定义实体时必须使用命名空间。<b>sirlich:shark</b>的命名方式远优于shark。</li>
+    <li>在组件和事件的命名中也应使用命名空间。就像Mojang使用minecraft:pig_saddled那样，你应该使用<b>命名空间:我的生物事件</b>和<b>命名空间:我的组件组</b>的格式。</li>
+    <li>在动画控制器、渲染控制器和动画的命名中也推荐使用命名空间。例如：<b>controller.animation.命名空间.实体名称.动作</b>的格式优于controller.animation.我的动作。</li>
+  </ul>
 <script src="../script.js"></script>
 </body>
 </html>
