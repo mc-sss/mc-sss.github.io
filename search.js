@@ -1,6 +1,7 @@
 // 预加载的搜索索引（示例数据，实际应通过JSON文件加载）
 let searchIndex = null;
 const files = [
+    "prepare_confirmtarget.html", "prepare_concept.html",
     'klpa.html', 'klpb.html', 'klpc.html', 'klpd.html', 'klpe.html', 'klpf.html', 'klpg.html'
 ];
 
