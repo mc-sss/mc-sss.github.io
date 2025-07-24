@@ -529,10 +529,10 @@ p {
     margin: 0
 }
 strong {
-    /* font-family: -apple-system, BlinkMacSystemFont, sans-serif; */
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     padding: 0 5px;
-    /* font-weight: bold; */
-    /* -webkit-font-smoothing: antialiased; */
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
 }
 a,
 button,
