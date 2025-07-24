@@ -133,9 +133,6 @@ body a {
 body a:hover {
     text-decoration: underline
 }
-.hidden {
-    display: none;
-}
 
 
 /* 快速搜索 */
@@ -532,6 +529,7 @@ p {
     margin: 0
 }
 b {
+    padding: 0 5px;
     font-weight: 600
 }
 a,
@@ -1005,28 +1003,37 @@ p {
 
 /* 展开菜单 */
 .with-submenu {
-    display: inline-flex;
+    display: inline;
     align-items: center;
     cursor: pointer;
-}.arrow {
+}
+.arrow {
+    display: inline-flex;
     margin-left: 8px;
     font-size: 14px;
     color: #666;
     transition: transform 0.2s;
-}.arrow::after {
+}
+.arrow::after {
     content: ">";
-}.submenu {
-    list-style: none;
-    padding-left: 20px;
-    margin-top: 8px;
-    display: none;
-}.submenu.expanded {
-    display: block;
-}.with-submenu.expanded .arrow {
+}
+.with-submenu.expanded .arrow {
     transform: rotate(90deg);
-}.tree-symbol::before {
-content: attr(data-symbol);
-display: inline;
+}
+.submenu {
+    list-style: none;
+    margin-top: 5px;
+    display: none;
+}
+.submenu.expanded {
+    display: block;
+}
+
+
+/* 把文本直接变图案 */
+.tree-symbol::before {
+    content: attr(data-symbol);
+    display: inline;
 }
 
 

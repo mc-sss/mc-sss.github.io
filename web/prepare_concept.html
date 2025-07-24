@@ -20,51 +20,135 @@
         <li><a href="https://mc.163.com/dev/mcmanual/mc-dev/mcguide/20-%E7%8E%A9%E6%B3%95%E5%BC%80%E5%8F%91/13-%E6%A8%A1%E7%BB%84SDK%E7%BC%96%E7%A8%8B/1-Mod%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B/1-Mod%E7%AE%80%E4%BB%8B.html">Mod简介</a></li>
         <li><a href="https://mc.163.com/dev/mcmanual/mc-dev/mcguide/20-%E7%8E%A9%E6%B3%95%E5%BC%80%E5%8F%91/10-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/1-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5.html">我的世界基础概念</a></li>
         <li><a href="https://mcwiki.easecation.net/wiki/guide/introduction.html">入门指南</a></li>
+        <li><a href="https://mc.163.com/dev/mcmanual/mc-dev/mconline/5-%E6%B8%B8%E6%88%8F%E5%85%A5%E9%97%A8%E4%B8%8E%E5%9F%BA%E7%A1%80%E8%AE%B2%E8%A7%A3/34-%E7%90%86%E8%A7%A3Json%EF%BC%88%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8%EF%BC%89/1-JSON%E5%9C%A8%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E5%9F%BA%E5%B2%A9%E7%89%88%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8.html">JSON在我的世界基岩版中的应用</a></li>
       </ul>
     </li>
     <li>免责声明：本账号/页面所发布内容（包括但不限于文字、图片、音频、视频、链接等）均来源于网络或个人创作。若存在未经原作者授权的转载或使用行为，纯属无意为之。我们尊重一切知识产权，并严格遵守《中华人民共和国著作权法》、《信息网络传播权保护条例》等相关法律法规。如您发现内容侵犯您的合法权益，请立即通过以下方式联系我们：① qq【2420038530】② qq群聊【564303592】，我们承诺：收到通知后24小时内核实并删除侵权内容；不将您的个人信息用于任何商业目的；后续加强内容审核，避免类似问题再次发生。免责范围：因内容侵权导致的直接或间接损失（包括但不限于律师费、诉讼费、商誉损失等），我们不承担赔偿责任，但会积极配合协商解决。</li>
   </ul>
   <h2 id="什么是Mod？">什么是Mod？</h2>
   <p>在《我的世界》里，mod（组件）为游戏带来了无限拓展可能。它主要由游戏地图、功能玩法、材质光影、皮肤和其他不常用的部分组成。这些丰富多样的mod，让每个玩家都能在《我的世界》中打造出属于自己的独特天地。</p>
-  <p>皮肤其实就是一张png贴图，搜索引擎搜索“我的世界皮肤制作”即可找到很多大神分享的教程。</p>
-  <p>功能玩法与材质光影都是通过“附加包”来制作。</p>
-  <p>游戏地图一般是一个搭建好的游戏存档，但是还可以添加“附加包”来实现更丰富的玩法。</p>
+  <p>皮肤其实就是一张png贴图，搜索引擎搜索<b>我的世界皮肤制作</b>即可找到很多大神分享的教程。</p>
+  <p>功能玩法与材质光影都是通过<b>附加包</b>来制作。</p>
+  <p>游戏地图一般是一个搭建好的游戏存档，但是还可以添加<b>附加包</b>来实现更丰富的玩法。</p>
   <h2 id="什么是附加包？">什么是附加包？</h2>
-  <p>"附加包"（Addon）是《我的世界》基岩版中与“Java版模组”相对应的内容扩展形式，是基岩版对mod的一种支持方式。</p>
+  <p><b>附加包</b>（Addon）是《我的世界》基岩版中与<b>Java版模组</b>相对应的内容扩展形式，是基岩版对mod的一种支持方式。</p>
   <p>与Java版不同的是，Java版模组侧重于修改游戏本身，而附加包则遵循微软提供的开发规范，通过添加新内容来扩展游戏。</p>
-  <p>附加包分为两种类型：资源包（Resource Pack）和行为包（Behavior Pack）。两者可以独立运行，但通常配合使用。</p>
-  <h2 id="附加包可以做什么">附加包可以做什么</h2>
-  <p>附加包允许我们通过“修改”或“移除”现有内容以及“添加”自定义内容来改变Minecraft的游戏体验。</p>
-  <p>它们功能强大，可以创建自定义实体、物品、方块，以及自定义战利品表和合成配方等。你的想象力就是唯一的限制！</p>
-  <p>附加包主要使用结构化数据格式JSON编写。本质上，附加包是一系列JSON文件、图像和声音文件的集合，通过这些文件以某种方式修改或增强游戏内容。</p>
-  <h2 id="理解JSON">理解JSON</h2>
-  <p>JSON是一种简单的文本文件格式，既方便人类阅读又便于计算机解析。</p>
-  <p>基岩版使用.json文件作为附加包的"编程语言"，因此您需要扎实掌握JSON的读写能力！</p>
-  <p>编写JSON时最关键的是必须确保文件"完全无错误"，否则整个文件将无法正常工作。即使一个错误的字符或多余逗号都会导致解析失败。因此，编写有效JSON至关重要。</p>
-  <p>JSON中使用多种格式表示数据，每种格式对应特定数据类型：</p>
-  <table tabindex="0"><thead><tr><th>名称</th><th>示例</th><th>说明</th></tr></thead><tbody><tr><td>字符串</td><td>"Hello!"</td><td>文本字符。必须用引号包裹</td></tr><tr><td>整型</td><td>15</td><td>整数。无需引号</td></tr><tr><td>浮点型</td><td>1.2</td><td>小数。无需引号</td></tr><tr><td>布尔值</td><td>true</td><td>只能是true或false。无需引号</td></tr></tbody></table>
-  <p>除了上述类型，还有两种特殊数据结构用于“嵌套”数据：</p>
-  <ul>
-    <li>数组使用方括号[]表示，本质是“有序列表”。列表元素可以是任意数据类型，元素间用逗号分隔。</li>
-    <li>对象使用花括号{}表示，包含“键值对”集合。键名称为key，对应数据称为value。键值对的格式为<code>"&lt;key&gt;": &lt;value&gt;</code>，注意键名必须用引号包裹且后接冒号。</li>
-  </ul>
-  <div class="code-container">
-    <div class="code-header">
-        <span class="code-format">JSON 格式</span>
-        <button class="copy-btn" onclick="copyCode(this)">复制代码</button>
+  <p>附加包分为两种类型：<b>资源包</b>（resource_pack）和<b>行为包</b>（behavior_pack）。两者可以独立运行，但通常配合使用。</p>
+  <div>
+    <div class="with-submenu">
+      <h2 id="附加包可以做什么" style="margin-bottom:0">附加包可以做什么</h2>
+      <span class="arrow"></span>
     </div>
-    <pre><code class="language-json">{
-    "my_string": "你好",
-    "my_int": "15",
-    "my_float": 1.2,
-    "my_bool": true,
-    "my_ints": [1, 2, 3],
-    "my_strings": ["红", "蓝"],
-    "my_dict": {
+    <div class="submenu">
+      <p>附加包允许我们通过<b>修改</b>或<b>移除</b>现有内容以及<b>添加</b>自定义内容来改变Minecraft的游戏体验。</p>
+      <p>它们功能强大，可以创建自定义实体、物品、方块，以及自定义战利品表和合成配方等。你的想象力就是唯一的限制！</p>
+      <p>附加包主要使用结构化数据格式<b>JSON</b>编写。本质上，附加包是一系列JSON文件、图像和声音文件的集合，通过这些文件以某种方式修改或增强游戏内容。</p>
+    </div>
+  </div>
+  <div>
+    <div class="with-submenu">
+      <h2 id="理解JSON">理解JSON<span class="arrow"></span></h2>
+    </div>
+    <div class="submenu">
+      <p>JSON是一种简单的文本文件格式，既方便人类阅读又便于计算机解析。</p>
+      <p>基岩版使用<b>.json</b>文件作为附加包的<b>编程语言</b>，因此您需要扎实掌握JSON的读写能力！</p>
+      <p>编写JSON时最关键的是必须确保文件<b>完全无错误</b>，否则整个文件将无法正常工作。即使一个错误的字符或多余逗号都会导致解析失败。因此，编写有效JSON至关重要。</p>
+      <p>JSON中使用多种格式表示数据，每种格式对应特定数据类型：</p>
+      <table tabindex="0">
+        <thead>
+          <tr>
+            <th>名称</th>
+            <th>示例</th>
+            <th>说明</th>
+            <th>游戏内代表</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>字符串</td>
+            <td>"Hello!"</td>
+            <td>文本字符。必须用引号""包裹。</td>
+            <td>游戏内一般用来表示特定的字段</td>
+          </tr>
+          <tr>
+            <td>整型</td>
+            <td>15</td>
+            <td>整数。无需引号</td>
+            <td>游戏内一般用来定义数值</td>
+          </tr>
+          <tr>
+            <td>浮点型</td>
+            <td>1.2</td>
+            <td>小数。无需引号</td>
+            <td>游戏内一般用来定义数值</td>
+          </tr>
+          <tr>
+            <td>布尔值</td>
+            <td>true</td>
+            <td>只能是true或false。无需引号</td>
+            <td>游戏内一般用来定义某个功能是否开启</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>除了上述类型，还有两种特殊数据结构用于<b>嵌套</b>数据：</p>
+      <ul>
+        <li>数组使用方括号[]表示，本质是<b>有序列表</b>。方括号内可以是任意数据类型，元素间用逗号分隔。</li>
+        <li>
+          <p>对象使用花括号{}表示，包含<b>键值对</b>集合。键名称为key，对应数据称为value。键值对的格式为<code>"&lt;key&gt;": &lt;value&gt;</code>，注意键名必须用引号包裹且后接冒号。</p>
+          <p>键值对之间需要用逗号分隔。我们称对象内的键值对为它的<b>子元素</b>或<b>内部元素</b>。</p>
+        </li>
+      </ul>
+      <p>除了字符串的引号内的<b>文本内容</b>可以写<b>中文</b>，其余部分，包括字符串的引号都必须是<b>半角英文</b>，以下为具体的写法：</p>
+      <div class="code-container">
+        <div class="code-header">
+            <span class="code-format">JSON 写法</span>
+            <button class="copy-btn" onclick="copyCode(this)">复制代码</button>
+        </div>
+        <pre><code class="language-json">{
+    "my_string": "你好", // 这是字符串
+    "my_int": 15, // 这是整型
+    "my_float": 1.2, // 这是浮点型
+    "my_bool": true, // 这是布尔值
+    "my_ints": [1, 2, 3], // 这是数组，数组里是整型
+    "my_strings": ["红", "蓝"], // 这也是数组，数组里是字符串
+    "my_mixed": ["红", 1, false], // 这也是数组，数组里包含了字符串、整型和布尔值
+    "my_dict": { // 这是对象，对象里可以是任意数据类型
         "my_ints": [1, 2, 3],
         "my_bool": true
     }
 }</code></pre>
+      </div>
+      <p>以下是一段动画文件示例，它完全由我们已学过的数据类型构成：</p>
+      <div class="code-container">
+        <div class="code-header">
+            <span class="code-format">动画文件示例</span>
+            <button class="copy-btn" onclick="copyCode(this)">复制代码</button>
+        </div>
+        <pre><code class="language-json">{
+  "format_version": "1.12.0",
+  "animations": {
+    "animation.car.wheel_spin": {
+      "loop": true,
+      "animation_length": 1.0,
+      "bones": {
+        "front_wheels": {
+          "rotation": ["q.modified_distance_moved * -30", 0, 0]
+        },
+        "back_wheels": {
+          "rotation": ["q.modified_distance_moved * -30", 0, 0]
+        }
+      }
+    }
+  }
+}</code></pre>
+      </div>
+      <p>在游戏中，JSON用于为一切自定义内容提供数据。所有使用这种方式自定义的内容都被称为<b>数据驱动</b>。</p>
+      <p>我们可以在游戏内用数据驱动的方式，定义物品、方块、实体、动画、UI等各类内容，几乎涵盖了大部分可自定义的内容。</p>
+      <p>值得注意的是，数据驱动的方式只能定义一个对象的<b>初始状态</b>。如果要在游戏运行时动态地更改内容，你还需要<b>脚本</b>的辅助。</p>
+      <p>如果你仔细查看过附加包的<b>文件结构</b>，你会发现有些.JSON文件位于名字包含beh的文件夹下，而有些位于名字包含res的文件夹下。前者被称为<b>行为包</b>，后者被称为<b>资源包</b>。</p>
+      <p>不管在行为包还是资源包中，.JSON文件一般都是成组地被分在不同的子文件夹下。</p>
+      <p>比如：战利品表就都位于loot_tables文件夹内，而网易的自定义方块则位于netease_blocks文件夹下。</p>
+    </div>
   </div>
 <script src="../script.js"></script>
 </body>
